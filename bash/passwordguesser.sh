@@ -6,7 +6,25 @@
 # TASK 3: Improve it by giving them 3 tries to get it right before failing (test 3 times but only if necessary)
 #           *** Do not use the exit command
 
+echo "Enter password:"
 myString="TestString"
 referenceString="password"
-
-[ $myString = $referenceString ] && echo "You guessed the password!" || echo "The password eludes you..."
+read myString
+if
+ [ $myString = $referenceString ];then
+ echo "You guessed the password!"
+ else
+ echo "The password eludes you... try again:"
+ read myString
+  if [ $myString = $referenceString ]; then
+   echo "You guessed the password!"
+   else
+    echo "The password eludes you... try again"
+    read myString
+    if [ $myString = $referenceString ]; then
+     echo "you guessed the password"
+    else
+     echo "Thanx for giving a try"
+    fi
+  fi
+fi
